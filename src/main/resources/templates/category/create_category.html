@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="ISO-8859-1">
+  <title>Save Category</title>
+  <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+  <div th:replace="partials/page_css_front.html :: css"></div>
+</head>
+<body>
+<div th:replace="header/navheader::navapalah"></div>
+<div class="container my-2">
+  <h1>Category</h1>
+  <hr>
+  <h2>Save Category</h2>
+
+
+  <form th:action="@{/api/category/saveCategory}" th:object="${categoryArticle}"
+        method="POST">
+
+    <div class="form-group">
+      <label for="nameCategoryArticle">Name Category</label>
+      <input type="text" th:field="*{nameCategoryArticle}"
+             placeholder="Name Category" class="form-control" id="nameCategoryArticle">
+    </div>
+
+    <div class="form-group">
+      <label for="strDescCategoryArticle">Description Category</label>
+      <input type="text" th:field="*{strDescCategoryArticle}"
+             placeholder="Description Category" class="form-control" id="strDescCategoryArticle">
+    </div>
+
+    <button type="submit" class="btn btn-info"> Save Category</button>
+    <a class="btn btn-info" th:href = "@{/api/category/show}">Back</a>
+  </form>
+</div>
+</body>
+</html>

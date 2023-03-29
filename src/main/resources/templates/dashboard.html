@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link th:href="@{/styles/banner.css}" rel="stylesheet" />
+  <div th:replace="partials/page_css_front.html :: css"></div>
+  <title>Dashboard Admin</title>
+</head>
+<body>
+<div th:replace="header/navheader::navapalah"></div>
+  <div class="banner">
+    <div class="text-promo">
+      Welcome Admin
+    </div>
+    <div class="text-desc"></div>
+  </div>
+</body>
+</html>

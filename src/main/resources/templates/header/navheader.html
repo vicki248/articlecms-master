@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<!--==========================
+  Header
+============================-->
+    <header id="header" th:fragment="navapalah">
+        <div class="container-fluid">
+
+            <div id="logo" class="pull-left">
+                <h1><a href="/" class="scrollto">ArticLe</a></h1>
+                <!-- Uncomment below if you prefer to use an image logo -->
+                <!-- <a href="#intro"><img src="img/logo.png" alt="" title="" /></a>-->
+            </div>
+
+            <nav id="nav-menu-container">
+                <ul class="nav-menu">
+                    <li class="menu-active"><a th:href="@{/api/check/admin}">Home</a></li>
+
+                    <th:block th:if="${USR_IDZ != null}" th:utext="${HTML_MENUZ}" />
+                    <li>
+                        <a th:if="${USR_IDZ != null}" href="/api/check/logout">logout</a>
+                    </li>
+                    <li>
+                        <a th:if="${USR_IDZ == null}" href="/api/check/register">Register</a>
+                    </li>
+                    <li>
+                        <a th:if="${USR_IDZ == null}" href="/api/check/signin">Sign In</a>
+                    </li>
+                </ul>
+            </nav><!-- #nav-menu-container -->
+        </div>
+    </header><!-- #header -->
+</body>
+</html>

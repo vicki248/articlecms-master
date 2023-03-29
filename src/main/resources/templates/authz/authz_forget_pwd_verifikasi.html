@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{/styles/style.css}" rel="stylesheet" />
+    <link th:href="@{/styles/error.css}" rel="stylesheet" />
+    <link th:href="@{/css/login.css}" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>VERIFIKASI TOKEN</title>
+</head>
+<body>
+  <section class="ftco-section">
+      <div class="container">
+          <div class="row justify-content-center">
+              <div class="col-md-7 col-lg-5">
+                  <div class="wrap">
+                      <div class="login-wrap p-4 p-md-5">
+                          <div class="d-flex">
+                              <div class="w-100">
+                                  <h3 class="mb-4">Input Token</h3>
+                              </div>
+                          </div>
+                          <form th:action="@{/api/authz/v1/vertokenfp}" th:object = "${forgetpwd}" method="POST" class="signin-form">
+                              <div th:if="${#fields.hasErrors('global')}" class="error-box error-danger" >
+                                  <p th:each="err : ${#fields.errors('global')}" th:text="${err}"  />
+                              </div>
+                              <div class="form-group mt-3">
+                                  <label>Input Token:</label>
+                                  <div>
+                                      <input type="hidden" th:field = "*{email}" name="email" id="email"/>
+                                  </div>
+                                  <input type="password" th:field = "*{token}" name="token" id="tokenz" maxlength="6"/>
+                              </div>
+
+                              <div class="form-group">
+                                  <button type="submit" class="form-control btn btn-primary rounded submit px-3">Kirim</button>
+                                  <div>
+                                      <a class="btn btn-block" th:href = "@{/api/authz/v1/ntverfp?emailz={mailz} (mailz=${forgetpwd.email})}">New Token</a>
+                                  </div>
+                              </div>
+
+                          </form>
+
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+</body>
+</html>
